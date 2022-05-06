@@ -1,5 +1,7 @@
 # Nearby Stars Viewer
 
+https://ka-ka-xyz.github.io/nearby_stars_viewer/index.html
+
 ![](./screenshot.png "screenshot")
 
 ## Overview
