@@ -17,18 +17,18 @@ Concentric circles drawn around the solar system have radii of 10, 20, 50, and 1
 
 ## How to use
 
-Get the CSV data from ["Extended Optical Century Star Table (tentative name)"](http://startide.jp/astro/lcc/x/) and paste the contents into `public/stars.csv`.
+1. Get the CSV data from ["Extended Optical Century Star Table (tentative name)"](http://startide.jp/astro/lcc/x/) and paste the contents into `public/stars.csv`.
 This application supports CSV format v2.1.
-
-Run `$ npm run start` to start in the local environment.
+1. First run `$ npm ci` once.
+1. Run `$ npm run start` to start in the local environment.
 
 
 ## 使用方法(How to use)
 
-[「拡張光世紀星表 (仮称)」](http://startide.jp/astro/lcc/x/)からCSVデータを取得し、`public/stars.csv`に内容をペーストしてください。
+1. [「拡張光世紀星表 (仮称)」](http://startide.jp/astro/lcc/x/)からCSVデータを取得し、`public/stars.csv`に内容をペーストしてください。
 csvのフォーマットはv2.1を想定しています。
-
-`$ npm run start`を実行するとローカル環境で起動します。
+1. 最初に一回`$ npm ci`を実行します
+1. `$ npm run start`を実行するとローカル環境で起動します。
 
 ## Develop
 This app is based on [create-react-app](https://github.com/facebook/create-react-app).
