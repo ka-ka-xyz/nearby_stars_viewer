@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.css": "/nearby_stars_viewer/static/css/main.5a3d8d16.css",
+    "main.js": "/nearby_stars_viewer/static/js/main.474e4607.js",
+    "index.html": "/nearby_stars_viewer/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.5a3d8d16.css",
+    "static/js/main.474e4607.js"
+  ]
+}
