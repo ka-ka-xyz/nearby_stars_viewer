@@ -14,7 +14,7 @@ const sol: Star = {
 };
 
 export const loadCatalog = async (): Promise<Star[]> => {
-  const resp = await fetch('/stars.csv');
+  const resp = await fetch(process.env.PUBLIC_URL + '/stars.csv');
   const stars = await resp.text();
 
   const data = stars.split(/\r\n|\n/).map((row, idx) => {
