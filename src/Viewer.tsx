@@ -223,6 +223,7 @@ export const Viewer = (props: {
     })
     const ratio = width / height;
     const camera = new THREE.PerspectiveCamera(45, ratio);
+    camera.up.set(0, 0, 1);
     cameraRef.current = camera;
     camera.position.set(10, 10, 10);
     camera.lookAt(new THREE.Vector3(0, 0, 0));
