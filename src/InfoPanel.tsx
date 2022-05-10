@@ -32,6 +32,10 @@ const SearchStarInput = (props: {
   setSelected: (star: Star | null) => void,
   starsMap: Map<string, Star>,
 }) => {
+  const [current, setCurrent] = useState<{
+    label: string,
+    value: Star
+  } | null>(null);
   const options = Array.from(props.starsMap.entries()).map(([k, v]) => {
     return {
       label: v.dispNames.join(", "),
@@ -40,6 +44,7 @@ const SearchStarInput = (props: {
   })
   return (
     <Autocomplete
+      value={current}
       disablePortal
       style={{ width: "95%"}}
       options={options}
@@ -139,6 +144,11 @@ export const InfoPanel = (props: {
             </IconButton>
           </Box>
           <StyledGridContainer container>
+            <StyledGridItem item xs={12}>
+              <SearchStarInput
+                {...props}
+              />
+            </StyledGridItem>
             <StyledGridItem item xs={4}>
               Name
             </StyledGridItem>
@@ -201,6 +211,11 @@ export const InfoPanel = (props: {
           </IconButton>
         </Box>
         <StyledGridContainer container>
+          <StyledGridItem item xs={12}>
+            <SearchStarInput
+              {...props}
+            />
+          </StyledGridItem>
           <StyledGridItem item xs={4}>
             Name
           </StyledGridItem>
