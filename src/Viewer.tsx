@@ -57,6 +57,23 @@ export const Viewer = (props: {
   isMobileSizeRef.current = isMobileSize;
 
   useEffect(() => {
+    const controls = controlsRef.current;
+    if (controls == null || props.selected == null) {
+      return;
+    }
+    const targetObj = starsRef.current?.getObjectByName(`star_${props.selected?.idx}`);
+    if (targetObj) {
+      controls.target = targetObj.position;
+      const max = controls.maxDistance;
+      controls.maxDistance = 20;
+      controls.update();
+      drawTargetMarkers(targetObj);
+      controls.maxDistance = max;
+      controls.update();
+    }
+  }, [props.selected])
+
+  useEffect(() => {
     createView(props.starsMap);
     return () => {
       const target = document.querySelector("#render-target");
@@ -121,11 +138,11 @@ export const Viewer = (props: {
     if (targetObj) {
       const key = `${targetObj.name}`
       const selected = props.starsMap.get(key);
-      controls.target = targetObj.position;
+      //controls.target = targetObj.position;
       if (selected) {
         props.setSelected(selected);
       }
-      drawTargetMarkers(targetObj);
+      //drawTargetMarkers(targetObj);
     }
   }
 

@@ -44,6 +44,8 @@ function App() {
           selected={selected}
         />
         <InfoPanel
+          starsMap={starsMap}
+          setSelected={setSelected}
           selected={selected}
         />
       </ThemeProvider>

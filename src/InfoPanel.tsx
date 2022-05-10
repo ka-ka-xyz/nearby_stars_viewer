@@ -4,6 +4,8 @@ import {
   Drawer,
   Grid,
   Box,
+  TextField,
+  Autocomplete,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { Star } from "./Star";
@@ -25,8 +27,36 @@ const StyledGridItem = styled(Grid)({
   overflowWrap: "break-word",
 })
 
+const SearchStarInput = (props: {
+  selected: Star | null,
+  setSelected: (star: Star | null) => void,
+  starsMap: Map<string, Star>,
+}) => {
+  const options = Array.from(props.starsMap.entries()).map(([k, v]) => {
+    return {
+      label: v.dispNames.join(", "),
+      value: v
+    }
+  })
+  return (
+    <Autocomplete
+      disablePortal
+      style={{ width: "95%"}}
+      options={options}
+      sx={{ width: 300 }}
+      onChange={(event: any, newValue: {label: string, value: Star} | null) => {
+        const newStar = newValue?.value ?? null;
+        props.setSelected(newStar);
+      }}
+      renderInput={(params) => <TextField {...params} label="Name" />}
+    />
+  );
+}
+
 export const InfoPanel = (props: {
   selected: Star | null,
+  setSelected: (star: Star | null) => void,
+  starsMap: Map<string, Star>,
 }) => {
   const [showFullMobile, setShowFullMobile] = useState<boolean>(false);
   const { isMobileSize } = useSize();
@@ -41,6 +71,11 @@ export const InfoPanel = (props: {
           style={{ width: `${NORMAL_HEIGHT_PX}px` }}
         >
           <StyledGridContainer container>
+            <StyledGridItem item xs={12}>
+              <SearchStarInput
+                {...props}
+              />
+            </StyledGridItem>
             <StyledGridItem item xs={4}>
               Name
             </StyledGridItem>
