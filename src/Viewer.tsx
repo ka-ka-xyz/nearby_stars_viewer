@@ -248,6 +248,7 @@ export const Viewer = (props: {
     const controls = new OrbitControls(camera, renderer.domElement)
     controls.enableDamping = true;
     controls.dampingFactor = 0.25;
+    controls.enablePan = false;
     controls.enableZoom = true;
     controlsRef.current = controls;
     tick();
