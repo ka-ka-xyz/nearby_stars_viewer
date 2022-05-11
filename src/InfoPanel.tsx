@@ -211,11 +211,6 @@ export const InfoPanel = (props: {
           </IconButton>
         </Box>
         <StyledGridContainer container>
-          <StyledGridItem item xs={12}>
-            <SearchStarInput
-              {...props}
-            />
-          </StyledGridItem>
           <StyledGridItem item xs={4}>
             Name
           </StyledGridItem>
